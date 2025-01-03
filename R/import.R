@@ -201,13 +201,13 @@ download_nhanes_file <- function(file_name, year, destination = tempdir(), cache
   dest_file_name <- paste0(year_suffix, "_", file_name)
   destination <- file.path(destination, file_name)
 
-  year_path = year
+  year_path = sapply(strsplit(year,"-"),"[",1)
 
-  if(year_path == "2017-2020") {
+  if(year == "2017-2020") {
     year_path = "2017-2018"
   }
   
-  if(year_path == "2019-2020") {
+  if(year == "2019-2020") {
     year_path = "limited_access"
   }
 
